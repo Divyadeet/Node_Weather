@@ -48,12 +48,16 @@ app.get('/weather', (req, res) => {
 
     geocode(location,(error, data = {}) => {
         if(error){
-            return res.send(error);
+            return res.send({
+                error
+            });
         }
 
         getWeather(data, (error, weather) => {
             if(error){
-                return res.send(error);
+                return res.send({
+                   error
+                });
             }
             res.send({
                 location : weather.location,

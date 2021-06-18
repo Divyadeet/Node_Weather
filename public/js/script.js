@@ -22,5 +22,8 @@ weatherForm.addEventListener('submit', (e) => {
                 message2.textContent = data.forecast+data.temperature+data.feelsLike;
             }
         })
-    })
+    }).catch(err => {
+          // Do something for an error here
+          console.log("Error Reading data " + err);
+        });
 })
